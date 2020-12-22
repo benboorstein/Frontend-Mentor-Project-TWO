@@ -1,3 +1,25 @@
+/*
+## Colors
+### Primary
+- Linear Gradient: hsl(236, 72%, 79%) to hsl(237, 63%, 64%)
+### Neutral
+- Very Light Grayish Blue: hsl(240, 78%, 98%)
+- Light Grayish Blue: hsl(234, 14%, 74%)
+- Grayish Blue: hsl(233, 13%, 49%)
+- Dark Grayish Blue: hsl(232, 13%, 33%)
+
+## Typography
+### Body Copy
+- Font size: 15px
+
+### Font
+- Weight: 700
+*/
+
+/*------------------------------------------------------------*/
+
+/* FYI: "The designs were created to the following widths: Mobile: 375px. Desktop: 1440px */
+
 html, body {
     height: 100%;
     width: 100%;
@@ -23,10 +45,8 @@ footer a {
 /****************************************
 ****************************************/
 
-@media screen and (min-width: ???px) { /* starting at width of ???px, the below will take effect.*/
+/*@media screen and (min-width: ???px) {}*/ /* starting at width of ???px, the below will take effect.*/
     
-    
-
 
 
 
