@@ -27,6 +27,18 @@ html, body {
     padding: 0;
 }
 
+body {
+    font-family: Montserrat;
+}
+
+header ul {
+    list-style-type: none;
+}
+
+main ul {
+    list-style-type: none;
+}
+
 
 
 

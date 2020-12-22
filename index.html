@@ -16,67 +16,68 @@
         Starting with “../../” moves two directories backwards and starts there (and so on…)
         To move forward, just start with the first subdirectory and keep moving forward -->
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 
-
-
-
-
-<!-- None of these is working. -->
-    <!-- what FEM had -->
-    <!-- <link rel="stylesheet" href="https://fonts.google.com/specimen/Montserrat"> -->
-
-    <!-- what Google had minus the numbers at end -->
-    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"> -->
-
-    <!-- what Google had -->
-    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700"> -->
-
-  
-    
-
-
-
-    
     <title>Frontend Mentor | Pricing Component with Toggle Master</title>
 
   </head>
 
   <body>
-    <header> <!-- LEFT OFF HERE - take care of font... -->
+
+    <header> 
       <h1>
         Our Pricing
       </h1> <!-- refer to for toggle: https://www.w3schools.com/howto/howto_css_switch.asp -->
-      <p>
-        Annually
-        <!-- here is where the toggle goes -->
-        Monthly
-      </p>
+      <ul>
+        <li>Annually</li>
+        <li>The Toggle</li>
+        <li>Monthly</li>
+      </ul>
     </header>
 
     <main>
-      Basic
-      &dollar;19.99
-      &dollar;199.99
-      500 GB Storage
-      2 Users Allowed
-      Send up to 3 GB
-      Learn More
-
-      Professional
-      &dollar;24.99
-      &dollar;249.99
-      1 TB Storage
-      5 Users Allowed
-      Send up to 10 GB
-      Learn More
-
-      Master
-      &dollar;39.99
-      &dollar;399.99
-      2 TB Storage
-      10 Users Allowed
-      Send up to 20 GB
-      Learn More
+      <div class="basic">
+        <ul>
+          <li>Basic</li>
+          <li>&dollar;19.99     &dollar;199.99</li>
+          <li>500 GB Storage</li>
+          <li>2 Users Allowed</li>
+          <li>Send up to 3 GB</li>
+          <li>
+            <form>
+              <input type="submit" value="Learn More">   
+            </form>
+          </li>
+        </ul>
+      </div>
+      <div class="professional">
+        <ul>
+          <li>Professional</li>
+          <li>&dollar;24.99     &dollar;249.99</li>
+          <li>1 TB Storage</li>
+          <li>5 Users Allowed</li>
+          <li>Send up to 10 GB</li>
+          <li>
+            <form>
+              <input type="submit" value="Learn More">   
+            </form>
+          </li>
+        </ul>
+      </div>
+      <div class="master">
+        <ul>
+          <li>Master</li>
+          <li>&dollar;39.99     &dollar;399.99</li>
+          <li>2 TB Storage</li>
+          <li>10 Users Allowed</li>
+          <li>Send up to 20 GB</li>
+          <li>
+            <form>
+              <input type="submit" value="Learn More">   
+            </form>
+          </li>
+        </ul>
+      </div>
     </main>
 
     <footer>
