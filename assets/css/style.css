@@ -35,9 +35,8 @@ header ul {
     list-style-type: none;
 }
 
-main ul {
-    list-style-type: none;
-}
+/* For the two images, use the background property shorthand, so that all the values for each image can go on one line and therefore I'm able to include both images on just one element, which I think, though I'm not sure, should be <main> with this project. */
+
 
 
 
