@@ -24,13 +24,18 @@
 
   <body>
 
-    <header> 
+    <header>
       <h1>
         Our Pricing
       </h1> 
       <ul>
         <li>Annually</li>
-        <li>The Toggle</li> <!-- refer to for toggle: https://www.w3schools.com/howto/howto_css_switch.asp -->
+        <li>
+          <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+          </label>
+        </li>
         <li>Monthly</li>
       </ul>
     </header>
@@ -39,26 +44,38 @@
       <dl class="three-plans">
         <div class="basic">
           <dt>Basic</dt>
-          <dd>&dollar;19.99     &dollar;199.99</dd>
+          <dd><span>&dollar;</span>199.99</dd>
+          <hr>
           <dd>500 GB Storage</dd>
+          <hr>
           <dd>2 Users Allowed</dd>
+          <hr>
           <dd>Send up to 3 GB</dd>
+          <hr>
           <dd><button type="button"><a href="#" target="_blank">LEARN MORE</a></button></dd>
         </div>
         <div class="professional">
           <dt>Professional</dt>
-          <dd>&dollar;24.99     &dollar;249.99</dd>
+          <dd><span>&dollar;</span>249.99</dd>
+          <hr>
           <dd>1 TB Storage</dd>
+          <hr>
           <dd>5 Users Allowed</dd>
+          <hr>
           <dd>Send up to 10 GB</dd>
+          <hr>
           <dd><button type="button"><a href="#" target="_blank">LEARN MORE</a></button></dd>
         </div>
         <div class="master">
           <dt>Master</dt>
-          <dd>&dollar;39.99     &dollar;399.99</dd>
+          <dd><span>&dollar;</span>399.99</dd>
+          <hr>
           <dd>2 TB Storage</dd>
+          <hr>
           <dd>10 Users Allowed</dd>
+          <hr>
           <dd>Send up to 20 GB</dd>
+          <hr>
           <dd><button type="button"><a href="#" target="_blank">LEARN MORE</a></button></dd>
         </div>
       </dl>

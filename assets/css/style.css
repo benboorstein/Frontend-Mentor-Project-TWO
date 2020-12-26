@@ -1,24 +1,7 @@
-/*
-## Colors
-### Primary
-- Linear Gradient: hsl(236, 72%, 79%) to hsl(237, 63%, 64%)
-### Neutral
-- Very Light Grayish Blue: hsl(240, 78%, 98%)
-- Light Grayish Blue: hsl(234, 14%, 74%)
-- Grayish Blue: hsl(233, 13%, 49%)
-- Dark Grayish Blue: hsl(232, 13%, 33%)
-
-## Typography
-### Body Copy
-- Font size: 15px
-
-### Font
-- Weight: 700
+/* LEFT OFF HERE:
+- figure out how to make "main span" (dollar sign) get centered vertically
+- position the squiggly background image on the mobile viewport
 */
-
-/*------------------------------------------------------------*/
-
-/* FYI: "The designs were created to the following widths: Mobile: 375px. Desktop: 1440px */
 
 html, body {
     height: 100%;
@@ -27,26 +10,227 @@ html, body {
     padding: 0;
 }
 
+/* For the two images, use the background property shorthand, so that all the values for each image can go on one line and therefore I'm able to include both images on just one element. */
 body {
     font-family: Montserrat;
+    font-size: 7px;
+    text-align: center;
+    background:
+        url("../../assets/img/bg-top.svg")
+        no-repeat
+        scroll
+        100% 0% / 375px 658px;
+    background-color: hsl(240, 78%, 98%);
 }
 
-header ul {
+/****************************************
+header
+****************************************/
+
+h1 {
+    color: hsl(233, 13%, 49%);
+    margin: 0;
+    font-size: 11px;
+    font-weight: 900; /* QQQ: How to make super bold like in the FEM version? */
+    padding-top: 22px;
+    padding-bottom: 13px;
+}
+
+ul {
     list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 15px;
+    display: flex;
+    justify-content: center;
 }
 
-/* For the two images, use the background property shorthand, so that all the values for each image can go on one line and therefore I'm able to include both images on just one element, which I think, though I'm not sure, should be <main> with this project. */
+li:nth-of-type(1) {
+    padding-right: 8px;
+}
 
+li:nth-of-type(2) {
+    margin-top: -2px;
+}
 
+li:nth-of-type(3) {
+    padding-left: 8px;
+}
 
+/********** The toggle (pasted from https://www.w3schools.com/howto/howto_css_switch.asp and then tweaked) begins here **********/
 
+/* QQQ: When the toggle goes right, there's not enough of a margin between the white ball and the end. How to fix? */
 
+/* The switch (the box around the slider) */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 19px;
+    height: 11.5px;
+  }
+  
+/* Hides default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+  
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+    -webkit-transition: .4s; /* QQQ: Is this line necessary, and, if so, why? */
+    transition: .4s;
+}
+  
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 8px; 
+    width: 8px; 
+    left: 1.3px; 
+    bottom: 1.3px;
+    background-color: white;
+    -webkit-transition: .4s; /* QQQ (same as above question): Is this line necessary, and, if so, why? */
+    transition: .4s;
+}
 
+input:checked + .slider:before { /* QQQ: This all allows it to toggle, but how? */
+    -webkit-transform: translateX(8px);
+    -ms-transform: translateX(8px);
+    transform: translateX(8px);
+}
+  
+/* Rounding the slider */
+.slider.round { /* QQQ: Why written this way? */
+    border-radius: 34px;
+}
+  
+.slider.round:before {
+    border-radius: 50%;
+}
 
+/********** The toggle ends here **********/
+
+/****************************************
+main
+****************************************/
+
+dl {
+    margin: 0;
+}
+
+div {
+    margin: 12px auto;
+    border-radius: 4px;
+    width: 90%; /* QQQ: You've told me there's a better way to do this, but we tabled it. Table it again? */
+}
+
+.basic {
+    background-color: white;
+}
+
+.professional {
+    background-image: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+    color: white;
+}
+
+.master {
+    background-color: white;
+}
+
+dt {
+    padding-top: 12px;
+    padding-bottom: 7px;
+}
+
+dd {
+    margin: 0;
+    padding-bottom: 1px;
+}
+
+dd:nth-of-type(1) {
+    font-size: 22px;
+    font-weight: 900;
+    padding-bottom: 5px;
+}
+
+dd:nth-of-type(5) {  
+    padding-top: 6px;
+    padding-bottom: 11px; 
+}
+
+.basic dd:nth-of-type(1) {
+    color: hsl(232, 13%, 33%);
+}
+
+.professional dd:nth-of-type(1) {
+    color: white;
+}
+
+.master dd:nth-of-type(1) {
+    color: hsl(232, 13%, 33%);
+}
+
+main span {
+    font-size: 13px;
+}
+
+hr {
+    width: 19%; /* QQQ: A better way to do this? */
+    height: 1px;
+    border-width: 0;
+    background-color: rgba(187, 187, 187, .2); /* I just chose this color; it was not provided. */
+}
+
+button {
+    font-size: 5px;
+    padding: 4px 30px 4px 30px;
+    border-width: 0;
+    border-radius: 2px;
+}
+
+.basic button {
+    background-image: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+}
+
+.professional button {
+    background-color: white;
+}
+
+.master button {
+    background-image: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+}
+
+a {
+    text-decoration: none;
+}
+
+.basic a {
+    color: white;
+}
+
+.professional a {
+    color: hsl(237, 63%, 64%); /* Not sure this is the right color for here, but seems to be appropriate. It is the darker of the two colors provided for the Linear Gradient: hsl(236, 72%, 79%) and hsl(237, 63%, 64%). */
+}
+
+.master a {
+    color: white;
+}
+
+/****************************************
+footer
+****************************************/
 
 footer {
     text-align: center;
-    font-size: 11px;
+    font-size: 9px;
 }
 
 footer a {
@@ -58,6 +242,9 @@ footer a {
 
 /*@media screen and (min-width: ???px) {}*/ /* starting at width of ???px, the below will take effect.*/
     
+
+
+
 
 
 
