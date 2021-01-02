@@ -16,7 +16,9 @@
         Starting with “../../” moves two directories backwards and starts there (and so on…)
         To move forward, just start with the first subdirectory and keep moving forward -->
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+      <!-- All of the two lines just below were verbatim pasted from fonts.google.com. Remember how this works, regarding font weights (notice the 400 and 700 in the url) and so on. -->
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
     <title>Frontend Mentor | Pricing Component with Toggle Master</title>
 
@@ -32,7 +34,7 @@
         <li>Annually</li>
         <li>
           <label class="switch">
-            <input type="checkbox">
+            <input type="checkbox" id="toggle">
             <span class="slider round"></span>
           </label>
         </li>
@@ -44,7 +46,7 @@
       <dl class="three-plans">
         <div class="basic">
           <dt>Basic</dt>
-          <dd><span>&dollar;</span>199.99</dd>
+          <dd><sup>&dollar;</sup><span id="price-basic">199.99</span></dd> <!-- "<sup>" stands for "superscript" -->
           <hr>
           <dd>500 GB Storage</dd>
           <hr>
@@ -52,11 +54,11 @@
           <hr>
           <dd>Send up to 3 GB</dd>
           <hr>
-          <dd><button type="button"><a href="#" target="_blank">LEARN MORE</a></button></dd>
+          <dd><a href="#" target="_blank"><button type="button">LEARN MORE</button></a></dd>
         </div>
         <div class="professional">
           <dt>Professional</dt>
-          <dd><span>&dollar;</span>249.99</dd>
+          <dd><sup>&dollar;</sup><span id="price-professional">249.99</span></dd>
           <hr>
           <dd>1 TB Storage</dd>
           <hr>
@@ -64,11 +66,11 @@
           <hr>
           <dd>Send up to 10 GB</dd>
           <hr>
-          <dd><button type="button"><a href="#" target="_blank">LEARN MORE</a></button></dd>
+          <dd><a href="#" target="_blank"><button type="button">LEARN MORE</button></a></dd>
         </div>
         <div class="master">
           <dt>Master</dt>
-          <dd><span>&dollar;</span>399.99</dd>
+          <dd><sup>&dollar;</sup><span id="price-master">399.99</span></dd>
           <hr>
           <dd>2 TB Storage</dd>
           <hr>
@@ -76,7 +78,7 @@
           <hr>
           <dd>Send up to 20 GB</dd>
           <hr>
-          <dd><button type="button"><a href="#" target="_blank">LEARN MORE</a></button></dd>
+          <dd><a href="#" target="_blank"><button type="button">LEARN MORE</button></a></dd>
         </div>
       </dl>
     </main>

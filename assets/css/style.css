@@ -1,25 +1,29 @@
-/* LEFT OFF HERE:
-- figure out how to make "main span" (dollar sign) get centered vertically
-- position the squiggly background image on the mobile viewport
-*/
+
+/* QQQ: On both viewports, why does the screen flash with the different font etc. upon loading? */
+
+/* QQQ: Is it a problem that, once the JS is working, the plan <div>s narrow a bit when it toggles to the monthly plan (which of course happens because there are fewer digits in the monthly plans' dollar amounts)? And if it is a problem, then what specifically is the problem? */
+
+/************************************************************
+********** For Mobile/Narrow Viewport **********
+************************************************************/
+
+/* Remember I worked with FEM's mobile demo at zoom 15. */
 
 html, body {
-    height: 100%;
-    width: 100%;
     margin: 0;
     padding: 0;
 }
 
-/* For the two images, use the background property shorthand, so that all the values for each image can go on one line and therefore I'm able to include both images on just one element. */
+/* The mobile viewport only has one background image. But the desktop viewport has two background images. So I'm using the background property shorthand so that all the values for each image can go on one line (here I've used several lines within this one line, just so it's easier to read) and therefore I'm able to include both images on just one element when I go to do the desktop viewport. */
 body {
     font-family: Montserrat;
-    font-size: 7px;
     text-align: center;
+    padding: 0 25px 0 25px; /* Using this instead of "width: 90%" on the <div>s. Remember padding doesn't always "expand outwards"; most of the time it actually eats into the space of its child, as is the case here. */
     background:
         url("../../assets/img/bg-top.svg")
-        no-repeat
-        scroll
-        100% 0% / 375px 658px;
+            no-repeat
+            scroll
+            228% -4.4% / 375px 658px;
     background-color: hsl(240, 78%, 98%);
 }
 
@@ -30,52 +34,53 @@ header
 h1 {
     color: hsl(233, 13%, 49%);
     margin: 0;
-    font-size: 11px;
-    font-weight: 900; /* QQQ: How to make super bold like in the FEM version? */
-    padding-top: 22px;
-    padding-bottom: 13px;
+    font-size: 28px;
+    font-weight: 700;
+    padding-top: 56px;
+    padding-bottom: 42px;
 }
 
 ul {
     list-style-type: none;
+    font-size: 13px;
+    font-weight: 700;
+    color: hsl(234, 14%, 74%);
     margin: 0;
     padding: 0;
-    padding-bottom: 15px;
+    padding-bottom: 63px;
     display: flex;
     justify-content: center;
 }
 
 li:nth-of-type(1) {
-    padding-right: 8px;
+    padding-right: 20px;
 }
 
 li:nth-of-type(2) {
-    margin-top: -2px;
+    margin-top: -5px;
 }
 
 li:nth-of-type(3) {
-    padding-left: 8px;
+    padding-left: 20px;
 }
 
 /********** The toggle (pasted from https://www.w3schools.com/howto/howto_css_switch.asp and then tweaked) begins here **********/
-
-/* QQQ: When the toggle goes right, there's not enough of a margin between the white ball and the end. How to fix? */
 
 /* The switch (the box around the slider) */
 .switch {
     position: relative;
     display: inline-block;
-    width: 19px;
-    height: 11.5px;
-  }
-  
+    width: 48px; /*was 60*/
+    height: 27.2px; /*was 34*/
+}
+
 /* Hides default HTML checkbox */
 .switch input {
     opacity: 0;
     width: 0;
     height: 0;
 }
-  
+
 /* The slider */
 .slider {
     position: absolute;
@@ -84,31 +89,36 @@ li:nth-of-type(3) {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
-    -webkit-transition: .4s; /* QQQ: Is this line necessary, and, if so, why? */
-    transition: .4s;
-}
-  
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 8px; 
-    width: 8px; 
-    left: 1.3px; 
-    bottom: 1.3px;
-    background-color: white;
-    -webkit-transition: .4s; /* QQQ (same as above question): Is this line necessary, and, if so, why? */
+    background-color: hsl(237, 68%, 72%); /* Not sure this is the right color for here, but seems to be appropriate. It is a middleground between the two colors provided for the Linear Gradient: hsl(236, 72%, 79%) and hsl(237, 63%, 64%). */
+    -webkit-transition: .4s;
     transition: .4s;
 }
 
-input:checked + .slider:before { /* QQQ: This all allows it to toggle, but how? */
-    -webkit-transform: translateX(8px);
-    -ms-transform: translateX(8px);
-    transform: translateX(8px);
+/* I added */
+.slider:active { /* QQQ: This seems to work with ".slider" or ".slider.round" or ".round"... Is one more proper than the other? */
+    opacity: 0.5;
 }
-  
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20.8px; /*was 26*/
+    width: 20.8px; /*was 26*/
+    left: 3.2px; /*was 4*/
+    bottom: 3.2px; /*was 4*/
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(20.8px); /*was 26*/
+    -ms-transform: translateX(20.8px); /*was 26*/
+    transform: translateX(20.8px); /*was 26*/
+}
+
 /* Rounding the slider */
-.slider.round { /* QQQ: Why written this way? */
+.slider.round {
     border-radius: 34px;
 }
   
@@ -128,42 +138,67 @@ dl {
 
 div {
     margin: 12px auto;
-    border-radius: 4px;
-    width: 90%; /* QQQ: You've told me there's a better way to do this, but we tabled it. Table it again? */
+    margin-bottom: 30px;
+    border-radius: 10px;
+    font-weight: 700;
+    padding-right: 94px;
+    padding-left: 94px;
+    box-shadow:
+        /* top: */
+            0px -14px 11px -7px rgba(105, 111, 221, 0.04),
+        /* left and bottom: */
+            -3px 20px 35px 0px rgba(105, 111, 221, 0.01), 
+        /* right and bottom: */
+            3px 35px 35px 0px rgba(105, 111, 221, 0.01),
+        /* bottom (and a bit of right): */
+            3px 35px 20px 0px rgba(105, 111, 221, 0.1),
+        /* bottom: */
+            2px 10px 12px 0px rgba(105, 111, 221, 0.2);
 }
 
 .basic {
     background-color: white;
+    color: hsl(233, 13%, 49%);
 }
 
 .professional {
-    background-image: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
-    color: white;
+    background-color: hsl(237, 68%, 72%); /* Not sure this is the right color for here, but seems to be appropriate. It is a middleground between the two colors provided for the Linear Gradient: hsl(236, 72%, 79%) and hsl(237, 63%, 64%). */
+    color: hsl(240, 78%, 98%);
 }
 
 .master {
     background-color: white;
+    color: hsl(233, 13%, 49%);
 }
 
 dt {
-    padding-top: 12px;
-    padding-bottom: 7px;
+    font-size: 15.5px;
+    padding-top: 31px;
+    padding-bottom: 13px;
+}
+
+.professional dt {
+    color: hsl(240, 78%, 98%);
 }
 
 dd {
+    font-size: 13px;
     margin: 0;
-    padding-bottom: 1px;
+    padding-top: 7px;
+    padding-bottom: 7px;
 }
 
 dd:nth-of-type(1) {
-    font-size: 22px;
-    font-weight: 900;
-    padding-bottom: 5px;
+    font-size: 63px;
+    font-weight: 700;
+    padding-bottom: 13px;
+    display: flex;
+    justify-content: center;
 }
 
 dd:nth-of-type(5) {  
-    padding-top: 6px;
-    padding-bottom: 11px; 
+    padding-top: 19px;
+    padding-bottom: 27px;
 }
 
 .basic dd:nth-of-type(1) {
@@ -178,51 +213,97 @@ dd:nth-of-type(5) {
     color: hsl(232, 13%, 33%);
 }
 
-main span {
-    font-size: 13px;
+sup {
+    font-size: 35px;
+    align-self: center;
+    padding-right: 4px;
 }
 
 hr {
-    width: 19%; /* QQQ: A better way to do this? */
     height: 1px;
     border-width: 0;
     background-color: rgba(187, 187, 187, .2); /* I just chose this color; it was not provided. */
 }
 
-button {
-    font-size: 5px;
-    padding: 4px 30px 4px 30px;
+button { /* QQQ: Why is my button font not as spread out as the FEM demo's? */
+    cursor: pointer;
+    font-size: 10.5px;
+    font-weight: 700;
+    padding: 13px 86px 13px 86px;
     border-width: 0;
-    border-radius: 2px;
+    border-radius: 7px;
 }
 
 .basic button {
     background-image: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+    color: hsl(240, 78%, 98%);
 }
+
+.basic button:active {
+    background-image: none;
+    background-color: white;
+    color: hsl(237, 63%, 64%); /* Not sure this is the right color for here, but seems to be appropriate. It is the darker of the two colors provided for the Linear Gradient: hsl(236, 72%, 79%) and hsl(237, 63%, 64%). */
+    outline: none;
+    border: 1px solid hsl(233, 13%, 49%);
+    padding: 12px 85px 12px 85px; /* Why is this here? It's one less pixel all around (than is set for the button) to compensate for the addition (here) of the border making it bigger. Why not just make the button have a 1px border the same color as the button? Because I can't because the button color is a linear-gradient and I can't make a border a linear-gradient. */
+}
+
+/* QQQ: Not sure how to make this work; I want to get rid of the black line around the button once it's been clicked.
+.basic button:visited {
+    color: ;
+    background-color: ;
+    border-color: ;
+    outline-color: ;
+    column-rule-color: ;
+}
+*/
 
 .professional button {
     background-color: white;
-}
-
-.master button {
-    background-image: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
-}
-
-a {
-    text-decoration: none;
-}
-
-.basic a {
-    color: white;
-}
-
-.professional a {
     color: hsl(237, 63%, 64%); /* Not sure this is the right color for here, but seems to be appropriate. It is the darker of the two colors provided for the Linear Gradient: hsl(236, 72%, 79%) and hsl(237, 63%, 64%). */
 }
 
-.master a {
-    color: white;
+.professional button:active {
+    background-color: hsl(237, 68%, 72%); /* Not sure this is the right color for here, but seems to be appropriate. It is a middleground between the two colors provided for the Linear Gradient: hsl(236, 72%, 79%) and hsl(237, 63%, 64%). It's what I used for ".professional". */
+    color: hsl(240, 78%, 98%);
+    outline: none;
+    border: 1px solid hsl(237, 46%, 86%); /* Not sure this is the right color for here, but seems to be appropriate. It is a middleground between the two lightest "Grayish Blue" colors provided. */
+    padding: 12px 85px 12px 85px;
 }
+
+/* QQQ: Not sure how to make this work; I want to get rid of the black line around the button once it's been clicked.
+.professional button:visited {
+    color: ;
+    background-color: ;
+    border-color: ;
+    outline-color: ;
+    column-rule-color: ;
+}
+*/
+
+.master button {
+    background-image: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+    color: hsl(240, 78%, 98%);
+}
+
+.master button:active {
+    background-image: none;
+    background-color: white;
+    color: hsl(237, 63%, 64%); /* Not sure this is the right color for here, but seems to be appropriate. It is the darker of the two colors provided for the Linear Gradient: hsl(236, 72%, 79%) and hsl(237, 63%, 64%). */
+    outline: none;
+    border: 1px solid hsl(233, 13%, 49%);
+    padding: 12px 85px 12px 85px;
+}
+
+/* QQQ: Not sure how to make this work; I want to get rid of the black line around the button once it's been clicked.
+.master button:visited {
+    color: ;
+    background-color: ;
+    border-color: ;
+    outline-color: ;
+    column-rule-color: ;
+}
+*/
 
 /****************************************
 footer
@@ -230,18 +311,165 @@ footer
 
 footer {
     text-align: center;
-    font-size: 9px;
+    font-size: 10px;
 }
 
 footer a {
     color: hsl(228, 45%, 44%); /*hsl(hue, saturation, lightness)*/
 }
 
-/****************************************
-****************************************/
 
-/*@media screen and (min-width: ???px) {}*/ /* starting at width of ???px, the below will take effect.*/
+/************************************************************
+********** For Desktop/Wide Viewport **********
+************************************************************/
+
+@media screen and (min-width: 900px) { /* starting at width of 900px, the code below (which is only for CHANGES to the above code) will take effect. */
+
+    body {
+        background:
+            url("../../assets/img/bg-top.svg")
+                no-repeat
+                scroll
+                100% 0% / 281.25px 493.5px,
+            url("../../assets/img/bg-bottom.svg")
+                no-repeat
+                scroll
+                0% 100% / 264.75px 228px;
+        background-color: hsl(240, 78%, 98%);
+    }
+
+    h1 {
+        font-size: 24px; 
+        font-weight: 700;
+        padding-top: 48px; 
+        padding-bottom: 36px; 
+    }
+
+    ul {
+        font-size: 11px; 
+        padding-bottom: 37px; 
+    }
+
+    li:nth-of-type(1) {
+        padding-right: 17.14px; 
+    }
     
+    li:nth-of-type(2) {
+        margin-top: -4.29px; 
+    }
+    
+    li:nth-of-type(3) {
+        padding-left: 17.14px;
+    }
+
+    /********** The toggle begins here **********/
+
+    /* The switch (the box around the slider) */
+    .switch {
+        width: 42px; /*was 60 on w3schools...The calculation (multiplying by .685) said it should be 41.1, but 42 works better*/
+        height: 24px; /*was 34 on w3schools...The calculation (multiplying by .685) said it should be 23.29, but 24 works better*/
+    }
+
+    .slider:before {
+        height: 17.81px; /*was 26 on w3schools*/
+        width: 17.81px; /*was 26 on w3schools*/
+        left: 2.76px; /*was 4 on w3schools...The calculation (multiplying by .685) said it should be 2.74, but 2.76 works better*/
+        bottom: 2.76px; /*was 4 on w3schools...The calculation (multiplying by .685) said it should be 2.74, but 2.76 works better*/
+    }
+
+    input:checked + .slider:before {
+        -webkit-transform: translateX(17.81px); /*was 26 on w3schools*/
+        -ms-transform: translateX(17.81px); /*was 26 on w3schools*/
+        transform: translateX(17.81px); /*was 26 on w3schools*/
+    }
+
+    /* Rounding the slider */
+    .slider.round {
+        border-radius: 24px; /*was 34 on w3schools...The calculation (multiplying by .685) said it should be 23.29, but 24 works better*/
+    }
+
+    /********** The toggle ends here **********/
+
+    dl {
+        display: flex;
+        justify-content: center;
+    }
+
+    div {
+        border-radius: 10px;
+        font-weight: 700;
+        margin-bottom: 34px;
+        margin-left: 0;
+        margin-right: 0;
+        padding-right: 25px; 
+        padding-left: 25px;
+    }
+
+    .basic {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        align-self: center; 
+    }
+
+    .professional {
+        z-index: 1;
+        align-self: center; 
+        padding-top: 21px;
+        padding-bottom: 21px;
+    }
+
+    .master {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        align-self: center;
+    }
+
+    dt {
+        font-size: 13.3px;
+        padding-top: 26.6px;
+        padding-bottom: 11.1px;
+    }
+
+    dd {
+        font-size: 11.1px;
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
+
+    dd:nth-of-type(1) {
+        font-size: 54px;
+        padding-bottom: 11.1px;
+    }
+    
+    dd:nth-of-type(5) {  
+        padding-top: 16.3px;
+        padding-bottom: 23.1px;
+    }
+
+    sup {
+        font-size: 30px;
+        padding-right: 7px;
+    }
+
+    button {
+        font-size: 9px;
+        padding: 11.1px 73.7px 11.1px 73.7px;
+    }
+
+    .basic button:active {
+        padding: 10.1px 72.7px 10.1px 72.7px;
+    }
+
+    .professional button:active {
+        padding: 10.1px 72.7px 10.1px 72.7px;
+    }
+
+    .master button:active {
+        padding: 10.1px 72.7px 10.1px 72.7px;
+    }
+}
+
+
 
 
 
