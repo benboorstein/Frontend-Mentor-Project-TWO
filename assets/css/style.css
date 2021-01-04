@@ -1,7 +1,9 @@
 
-/* QQQ: On both viewports, why does the screen flash with the different font etc. upon loading? */
+/* Question: On both viewports (mobile and desktop), why does the screen flash with the different font etc. upon loading? */
+/* Answer: FOUT (flash of unstyled text). No big deal. Has to do with loading Google API fonts. */
 
-/* QQQ: Is it a problem that, once the JS is working, the plan <div>s narrow a bit when it toggles to the monthly plan (which of course happens because there are fewer digits in the monthly plans' dollar amounts)? And if it is a problem, then what specifically is the problem? */
+/* Question: Is it a problem that, once the JS is working, the plan <div>s narrow a bit when it toggles to the monthly plan (which of course happens because there are fewer digits in the monthly plans' dollar amounts)? */
+/* Answer: No, not really. It's actually good because it means you're website is responsive. If a client complains about it, then you have to fix it obviously. */
 
 /************************************************************
 ********** For Mobile/Narrow Viewport **********
@@ -52,7 +54,7 @@ ul {
     justify-content: center;
 }
 
-li:nth-of-type(1) {
+li:nth-of-type(1) { /* NOTE: As a rule with some exceptions, it's better to give each one of these <li> elements a class and reference them that way, instead of doing what I did here. */
     padding-right: 20px;
 }
 
@@ -95,7 +97,7 @@ li:nth-of-type(3) {
 }
 
 /* I added */
-.slider:active { /* QQQ: This seems to work with ".slider" or ".slider.round" or ".round"... Is one more proper than the other? */
+.slider.round:active {
     opacity: 0.5;
 }
 
@@ -225,7 +227,7 @@ hr {
     background-color: rgba(187, 187, 187, .2); /* I just chose this color; it was not provided. */
 }
 
-button { /* QQQ: Why is my button font not as spread out as the FEM demo's? */
+button { /* Why is my button font not as spread out as the FEM demo's? The solution is to add "letter-spacing: ?px;" just below. But I'm not doing it now because then I'd have to resize a few things and it's not a priority now. */
     cursor: pointer;
     font-size: 10.5px;
     font-weight: 700;
@@ -248,15 +250,9 @@ button { /* QQQ: Why is my button font not as spread out as the FEM demo's? */
     padding: 12px 85px 12px 85px; /* Why is this here? It's one less pixel all around (than is set for the button) to compensate for the addition (here) of the border making it bigger. Why not just make the button have a 1px border the same color as the button? Because I can't because the button color is a linear-gradient and I can't make a border a linear-gradient. */
 }
 
-/* QQQ: Not sure how to make this work; I want to get rid of the black line around the button once it's been clicked.
-.basic button:visited {
-    color: ;
-    background-color: ;
-    border-color: ;
-    outline-color: ;
-    column-rule-color: ;
+.basic a:visited button {
+    outline: none;
 }
-*/
 
 .professional button {
     background-color: white;
@@ -271,15 +267,9 @@ button { /* QQQ: Why is my button font not as spread out as the FEM demo's? */
     padding: 12px 85px 12px 85px;
 }
 
-/* QQQ: Not sure how to make this work; I want to get rid of the black line around the button once it's been clicked.
-.professional button:visited {
-    color: ;
-    background-color: ;
-    border-color: ;
-    outline-color: ;
-    column-rule-color: ;
+.professional a:visited button { /* Ideally this wouldn't show the outline or border (not sure which it is in this case) that it does, but it's not a priority now to fix it. */
+    outline: none;
 }
-*/
 
 .master button {
     background-image: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
@@ -295,15 +285,9 @@ button { /* QQQ: Why is my button font not as spread out as the FEM demo's? */
     padding: 12px 85px 12px 85px;
 }
 
-/* QQQ: Not sure how to make this work; I want to get rid of the black line around the button once it's been clicked.
-.master button:visited {
-    color: ;
-    background-color: ;
-    border-color: ;
-    outline-color: ;
-    column-rule-color: ;
+.master a:visited button {
+    outline: none;
 }
-*/
 
 /****************************************
 footer
