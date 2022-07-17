@@ -1,8 +1,7 @@
-
 /* Question: On both viewports (mobile and desktop), why does the screen flash with the different font etc. upon loading? */
 /* Answer: FOUT (flash of unstyled text). No big deal. Has to do with loading Google API fonts. */
 
-/* Question: Is it a problem that, once the JS is working, the plan <div>s narrow a bit when it toggles to the monthly plan (which of course happens because there are fewer digits in the monthly plans' dollar amounts)? */
+/* Question: Is it a problem that, once the JS is working, the '.card' divs narrow a bit when it toggles to the monthly plan (which of course happens because there are fewer digits in the monthly plans' dollar amounts)? */
 /* Answer: No, not really. It's actually good because it means you're website is responsive. If a client complains about it, then you have to fix it obviously. */
 
 /************************************************************
@@ -20,13 +19,13 @@ html, body {
 body {
     font-family: Montserrat;
     text-align: center;
-    padding: 0 25px 0 25px; /* Using this instead of "width: 90%" on the <div>s. Remember padding doesn't always "expand outwards"; most of the time it actually eats into the space of its child, as is the case here. */
+    padding: 0 25px 0 25px; /* Using this instead of "width: 90%" on '.card' elements. Remember padding doesn't always "expand outwards"; most of the time it actually eats into the space of its child, as is the case here. */
     background:
         url("../../assets/img/bg-top.svg")
+            hsl(240, 78%, 98%)
             no-repeat
             scroll
             228% -4.4% / 375px 658px;
-    background-color: hsl(240, 78%, 98%);
 }
 
 /****************************************
@@ -138,7 +137,7 @@ dl {
     margin: 0;
 }
 
-div {
+.card {
     margin: 12px auto;
     margin-bottom: 30px;
     border-radius: 10px;
@@ -379,7 +378,7 @@ footer a {
         justify-content: center;
     }
 
-    div {
+    .card {
         border-radius: 10px;
         font-weight: 700;
         margin-bottom: 34px;
@@ -452,6 +451,8 @@ footer a {
         padding: 10.1px 72.7px 10.1px 72.7px;
     }
 }
+
+
 
 
 
